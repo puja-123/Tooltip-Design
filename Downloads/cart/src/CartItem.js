@@ -1,22 +1,57 @@
 import React from 'react';
 class CartItem extends React.Component {
-    constructor () {
-        super();
-        this.state = {
-            price : 999,
-            title : 'Mobile Phone',
-            qty : 2,
-            img : ''
-        }
-    }
-    increaseQuantity = () =>
-    {
-        console.log(this.state);
-    }
+    // testing() {
+    //     const promise = new Promise((resolve , reject) => {
+    //         setTimeout(() => {
+    //             resolve('done');
+    //         } , 5000);
+    //     })
+    //     promise.then(() => {
+    //         this.setState({ qty : this.state.qty + 10 });
+    //         this.setState({ qty : this.state.qty + 10 });
+    //         this.setState({ qty : this.state.qty + 10 });
+    //         console.log('state' , this.state);
+    //     });
+    // }
+    // increaseQuantity = () =>
+    // {
+    //     // console.log(this.state);
+    //     //setState form 1
+    //     // this.setState({
+    //     //     qty : this.state.qty + 1
+    //     // });
+
+    //     //setState form 2
+    //     this.setState((prevState) => {
+    //         return {
+    //             qty : prevState.qty + 1,
+    //         }
+    //     } , () => {
+    //         console.log('this.state' , this.state);
+    //     });
+    // }
+    // decreaseQuantity = () =>
+    // {
+    //     this.setState((prevState) => {
+    //         if(prevState.qty === 0)
+    //         {
+    //             return;
+    //         }
+    //         else{
+    //         return {
+    //             qty : prevState.qty - 1,
+    //         }
+    //     }
+    //     }, () => {
+    //         console.log('this.state' , this.state);
+    //     });
+    // }
     render(){
-        const {price,title,qty} = this.state;
+        console.log('this.props' , this.props);
+        const {price,title,qty} = this.props.product;
         return(
             <div className = "cart-item">
+                {this.props.jsx}
                 <div className="left-block">
                     <img style={styles.image}/>
                 </div>
@@ -36,6 +71,7 @@ class CartItem extends React.Component {
                             alt="decrease" 
                             className="action-icons" 
                             src="https://t4.ftcdn.net/jpg/03/51/18/85/240_F_351188596_rBQwfSx3MgDI1RhmyrJcVGFfP4lVg1VN.jpg"
+                            onClick = {this.decreaseQuantity}
                         />
                         <img 
                             alt="delete" 
